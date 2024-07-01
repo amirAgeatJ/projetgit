@@ -1,5 +1,5 @@
 ---
-name: Custom Issue
+name: Add car part Issue
 about: Describe this issue template's purpose here.
 title: ''
 labels: ''
