@@ -3,6 +3,7 @@ function sayHello (name) {
 }
 
 sayHello('World')
+sayHello('Alice')
 
 const add = (a, b) => {
   return a + b
