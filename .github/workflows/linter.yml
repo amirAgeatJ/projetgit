@@ -7,8 +7,10 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  run-lint:
+  lint:
+    name: Lint Code Base
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,15 +29,34 @@ jobs:
         id: eslint-lint
         run: npm run lint
 
+  fix-and-push:
+    name: Fix and Push Lint Errors
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
       - name: Run ESLint with Fix
-        if: failure()
         run: npm run lint:fix
 
-      - name: Commit changes
-        if: failure()
+      - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Auto-fix lint errors" || echo "No changes to commit"
-          git push || echo "No changes to push"
+          git push origin main || echo "No changes to push"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
