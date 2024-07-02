@@ -32,7 +32,7 @@ jobs:
         run: npm run lint:fix
 
       - name: Commit changes
-        if: always()
+        if: failure()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
