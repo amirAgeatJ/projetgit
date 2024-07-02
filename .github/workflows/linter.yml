@@ -24,6 +24,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Run ESLint
+        id: eslint-lint
         run: npm run lint
 
       - name: Run ESLint with Fix
