@@ -5,6 +5,7 @@
     "standard": "^17.1.0"
   },
   "scripts": {
-    "lint:js": "npx standard 'index.js'"
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   }
 }
