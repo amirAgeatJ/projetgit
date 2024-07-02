@@ -14,7 +14,7 @@ First of all, thank you for taking the time to contribute! We appreciate your he
 
 ## Code of Conduct
 
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [email@example.com](mailto:email@example.com).
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [amir@example.com](mailto:amir@example.com).
 
 ## How to Contribute
 
